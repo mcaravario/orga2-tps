@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/martojc-lab/!svn/ver/56/tp1/solucion
+END
+tests.sh
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/martojc-lab/!svn/ver/52/tp1/solucion/tests.sh
+END
+test-o-matic.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/martojc-lab/!svn/ver/52/tp1/solucion/test-o-matic.h
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/martojc-lab/!svn/ver/52/tp1/solucion/Makefile
+END
+listaP.c
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/martojc-lab/!svn/ver/52/tp1/solucion/listaP.c
+END
+pruebacorta.sh
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/martojc-lab/!svn/ver/52/tp1/solucion/pruebacorta.sh
+END
+listaP.h
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/martojc-lab/!svn/ver/52/tp1/solucion/listaP.h
+END
+trie_asm.asm
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/martojc-lab/!svn/ver/57/tp1/solucion/trie_asm.asm
+END
+LEEME.txt
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/martojc-lab/!svn/ver/52/tp1/solucion/LEEME.txt
+END
+main.c
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/martojc-lab/!svn/ver/58/tp1/solucion/main.c
+END
+trie_c.c
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/martojc-lab/!svn/ver/58/tp1/solucion/trie_c.c
+END
+test-o-matic.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/martojc-lab/!svn/ver/52/tp1/solucion/test-o-matic.cpp
+END
+tester.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/martojc-lab/!svn/ver/52/tp1/solucion/tester.cpp
+END
+trie.h
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/martojc-lab/!svn/ver/52/tp1/solucion/trie.h
+END

@@ -1,0 +1,15 @@
+Para compilar: make all
+
+Para correr la prueba corta: ./pruebacorta.sh
+	Si les dice que no tienen permisos: chmod +x pruebacorta.sh
+
+Para testear: ./tests.sh
+	Si les dice que no tienen permisos: chmod +x tests.sh
+
+Los archivos que deben completar son trie_c.c, trie_asm.asm y main.c
+
+Se recomienda que revisen los demás archivos para ver de qué se tratan. Archivos relevantes al TP: Makefile, listaP.h, listaP.c, tests.sh. El resto son usados para los tests.
+
+Mientras estan desarrollando pueden programar varias funciones en C antes de hacerlas en ASM (esto es recomendable), pero al momento de entregar, deben respetar las consignas del enunciado, es decir, dejar solo las dos funciones que pedimos en C y hacer el resto en ASM.
+
+En el archivo main pueden ir probando lo que quieran mientras están desarrollando, pero a la hora de entregar, debe respetar lo que dice el enunciado.
