@@ -1,0 +1,136 @@
+\subsection*{Filtro \textit{tiles}}
+
+ Programar el filtro \textit{tiles} en lenguaje C y luego en ASM haciendo uso de las instrucciones vectoriales (\textbf{SSE}).
+
+
+\vspace*{0.3cm} \noindent
+\textbf{Experimento 1 - análisis el código generado}
+
+Utilizar la herramienta \verb|objdump| para verificar como el compilador de C deja ensamblado el código C. Como es el código generado, ¿cómo se manipulan las variables locales?¿le parece que ese código generado podría optimizarse?
+
+\newpage
+\vspace*{0.3cm} \noindent
+\textbf{Experimento 2 - optimizaciones del compilador}
+
+Compile el código de C con optimizaciones del compilador, por ejemplo, pasando el flag \verb|-O1|\footnote{agregando este flag a \texttt{CCFLAGS64} en el makefile}. 
+¿Qué optimizaciones realizó el compilador?
+¿Qué otros flags de optimización brinda el compilador?
+¿Para qué sirven?
+
+
+\vspace*{0.3cm} \noindent
+\textbf{Experimento 3 - secuencial vs. vectorial}
+
+	Realice una medición de las diferencias de performance entre las versiones
+	de C y ASM (el primero con -O1, -O2 y -O3).\\
+	¿Como realizó la medición?¿Cómo sabe que su medición es una buena medida?¿Cómo afecta a la medición la existencia de \emph{outliers}\footnote{en español, valor atípico: \url{http://es.wikipedia.org/wiki/Valor_atípico}}?¿De qué manera puede minimizar su impacto?¿Qué resultados obtiene si mientras corre los tests ejecuta otras aplicaciones que utilicen al máximo la CPU? 
+	Realizar un análisis \textbf{riguroso} de los resultados y acompañar con un gráfico que presente estas diferencias.
+
+
+\vspace*{0.3cm} \noindent
+\textbf{Experimento 4 - cpu vs. bus de memoria}
+
+	Se desea conocer cual es el mayor limitante a la performance de este filtro en su versión ASM.
+
+	¿Cuál es el factor que limita la performance en este caso? En caso de que el limitante
+	fuera la intensidad de cómputo, entonces podrían agregarse instrucciones que realicen
+	accesos a memoria y la performance casi no debería sufrir. La inversa puede aplicarse
+	si el limitante es la cantidad de accesos a memoria.
+	
+	Realizar un experimento, agregando múltiples instrucciones de un mismo tipo y realizar un análisis
+	del resultado. Acompañar con un gráfico.
+
+\vspace*{0.3cm} \noindent
+\textbf{Experimento 5 (\textit{opcional}) - secuencial vs. vectorial (parte II)}
+
+	Si vemos a los pixeles como una tira muy larga de bytes, este filtro en
+	realidad no requiere ningún procesamiento de datos en paralelo. Esto podría
+	significar que la velocidad del filtro de C puede aumentarse hasta casi
+	alcanzar la del de ASM. ¿ocurre esto?
+	
+	Modificar el filtro para que en vez de acceder a los bytes de a uno a la vez
+	se accedan como tiras de 64 bits y analizar la performance.
+
+
+\subsection*{Filtro \textit{Popart}}
+
+  Programar el filtro \textit{Popart} en lenguaje C y en en ASM haciendo uso de 
+  las instrucciones vectoriales (\textbf{SSE}).
+
+\vspace*{0.3cm} \noindent
+\textbf{Experimento 1 - saltos condicionales}
+
+	Se desea conocer que tanto impactan los saltos condicionales
+	en el código del ejercicio anterior con \verb|-O1|.\\
+	Para poder medir esto, una posibilidad es quitar las comparaciones
+	al procesar cada pixel. Por más que la imagen resultante no sea correcta,
+	será posible tomar una medida del impacto de los saltos condicionales.
+	Analizar como varía la performance. 
+	
+	Si se le ocurren, mencionar otras posibles formas de medir el impacto de los saltos condicionales.
+
+
+%\vspace*{0.3cm} \noindent
+
+\newpage
+
+\vspace*{0.3cm} \noindent
+\textbf{Experimento 2 - cpu vs. bus de memoria}
+
+	¿Cuál es el factor que limita la performance en este caso? 
+	
+	Realizar un experimento, agregando múltiples instrucciones de un mismo tipo
+	y realizar un análisis 	del resultado. Acompañar con un gráfico.
+
+
+\vspace*{0.3cm} \noindent
+\textbf{Experimento 3 - prefetch}
+
+  La técnica de \textit{prefetch} es otra forma de optimización que puede
+  realizarse. Su sustento teórico es el siguiente:
+  
+  Suponga un algoritmo que en cada iteración tarda n ciclos en obtener un dato y una cantidad
+  similar en procesarlo. Si el algoritmo lee el dato $i$ y luego lo procesa,
+  desperdiciará siempre n ciclos esperando entre que el dato llega y que se comienza
+  a procesar efectivamente. Un algoritmo más inteligente podría pedir el 
+  dato $i+1$ al comienzo del ciclo de proceso del dato $i$ (siempre suponiendo
+  que el dato $i$ pidió en la iteración $i-1$. De esta manera, a la vez que el
+  procesador computa todas las instrucciones de la iteración $i$, se estáran trayendo
+  los datos de la siguiente iteración, y cuando esta última comience, los datos ya
+  habrán llegado.
+
+  \vspace*{0.2cm}
+  Estudiar esta técnica y proponer una aplicación al código del filtro en la versión ASM.
+  Programarla y analizar el resultado. ¿Vale la pena hacer prefetching?
+
+\vspace*{0.3cm} \noindent
+\textbf{Experimento 3 - secuencial vs. vectorial}
+
+  Analizar cuales son las diferencias de performace entre las versiones de C y ASM. 
+  Realizar gráficos que representen estas diferencias.
+
+
+\subsection*{Filtro \textit{Temperature}}
+
+  Programar el filtro \textit{Temperature} en lenguaje C y en en ASM haciendo uso de 
+  las instrucciones vectoriales (\textbf{SSE}).
+
+
+\vspace*{0.3cm} \noindent
+\textbf{Experimento 1}
+
+  Analizar cuales son las diferencias de performace entre las versiones de C y ASM. 
+  Realizar gráficos que representen estas diferencias.
+
+
+
+\subsection*{Filtro \textit{LDR}}
+  Programar el filtro \textit{LDR} en lenguaje C y en
+  ASM haciendo uso de las instrucciones \textbf{SSE}.
+
+\vspace*{0.3cm} \noindent
+\textbf{Experimento 1}
+
+  Analizar cuales son las diferencias de performace entre las versiones de C y ASM. 
+  Realizar gráficos que representen estas diferencias.
+
